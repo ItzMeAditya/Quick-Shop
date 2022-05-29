@@ -2,6 +2,7 @@ const path = require('path');
 
 const express = require('express');
 const bodyParser = require('body-parser');
+require('dotenv').config();
 
 const errorController = require('./controllers/error');
 
@@ -18,7 +19,7 @@ const csrf = require('csurf');
 const flash = require('connect-flash');
 const multer = require('multer');
 
-const MONGODB_URI = 'mongodb+srv://Aditya:Adi11102002@cluster0.xp02h.mongodb.net/shop'
+const MONGODB_URI = process.env.MONGO_URI;
 
 const app = express();
 const store = new MongoDBStore ({
@@ -96,9 +97,9 @@ app.use(authRoutes);
 app.get ('/500',errorController.get500);
 app.use(errorController.get404);
 
+const PORT = process.env.PORT || 5000;
 mongoose.connect(MONGODB_URI)
 .then( () => {
-    app.listen(5000);
-    console.log('Connected');
+    app.listen(PORT,console.log(`Connected to the Port ${PORT}`));
 })
 .catch((err) => console.log(err));
