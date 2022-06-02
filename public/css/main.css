@@ -60,9 +60,19 @@ form {
   display: flex;
 }
 
-.main-header__item {
+.main-header__item{
   margin: 0 1rem;
   padding: 0;
+}
+
+.main-header__item a.title {
+  font: inherit;
+  font-weight: bold;
+  background: transparent;
+  border: none;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
 }
 
 .main-header__item a,
@@ -199,6 +209,15 @@ form {
 .card__actions button,
 .card__actions a {
   margin: 0 0.25rem;
+}
+
+.card_details_image{
+  width: 100%;
+  align-items: center;
+}
+
+.card_details_image img{
+  width: 40%;
 }
 
 .btn {

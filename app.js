@@ -10,7 +10,6 @@ const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 const authRoutes = require('./routes/auth');
 
-//const mongoConnect = require('./util/database').mongoConnect;
 const mongoose = require('mongoose');
 const User = require('./models/user');
 const session = require('express-session');
@@ -18,6 +17,7 @@ const MongoDBStore = require('connect-mongodb-session')(session);
 const csrf = require('csurf');
 const flash = require('connect-flash');
 const multer = require('multer');
+const helmet = require('helmet');
 
 const MONGODB_URI = process.env.MONGO_URI;
 
@@ -50,6 +50,7 @@ const fileFilter = (req, file, cb ) => {
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
+app.use(helmet());    // middleware which sets secure headers by default
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(multer({storage : fileStorage, fileFilter : fileFilter}).single('image'));
