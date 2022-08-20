@@ -48,7 +48,7 @@ form {
 .main-header__nav {
   height: 100%;
   width: 100%;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: space-between;
 }
@@ -68,6 +68,7 @@ form {
 .main-header__item a.title {
   font: inherit;
   font-weight: bold;
+  font-size: 1.6rem;
   background: transparent;
   border: none;
   text-decoration: none;
@@ -81,6 +82,7 @@ form {
   background: transparent;
   border: none;
   text-decoration: none;
+  font-size: 1.4rem;
   color: white;
   cursor: pointer;
 }
@@ -140,6 +142,13 @@ form {
 }
 
 #side-menu-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+}
+
+#side-menu-toggle button {
   border: 1px solid white;
   font: inherit;
   padding: 0.5rem;
@@ -147,6 +156,18 @@ form {
   background: transparent;
   color: white;
   cursor: pointer;
+}
+
+#side-menu-toggle a.title {
+  font: inherit;
+  font-size: 1.6rem;
+  font-weight: bold;
+  background: transparent;
+  border: none;
+  text-decoration: none;
+  color: white;
+  cursor: pointer;
+  margin-left: 15px;
 }
 
 #side-menu-toggle:focus {
@@ -270,6 +291,10 @@ form {
 }
 
 @media (min-width: 768px) {
+  .main-header {
+    justify-content: space-between;
+  }
+
   .main-header__nav {
     display: flex;
   }
